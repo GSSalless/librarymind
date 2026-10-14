@@ -1,5 +1,5 @@
 #!/bin/bash
-# Liga a Biblioteca Kindle sozinha toda vez que o Mac inicia (rodar uma vez só).
+# Liga a LibraryMind sozinha toda vez que o Mac inicia (rodar uma vez só).
 PASTA="$(cd "$(dirname "$0")" && pwd)"
 PY="$(command -v python3)"
 PLIST="$HOME/Library/LaunchAgents/com.biblioteca.kindle.plist"

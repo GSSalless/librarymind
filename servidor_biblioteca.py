@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Servidor da Biblioteca Kindle.
-Abre o biblioteca.html com acesso aos arquivos dos livros, para o botão
-"Enviar pelo WhatsApp" funcionar. Feche esta janela para desligar."""
+"""Servidor da LibraryMind.
+Abre o biblioteca.html com acesso aos arquivos dos livros.
+Feche esta janela para desligar."""
 import http.server, socket, os, sys, webbrowser, threading, json, subprocess
 
 PORTA = 8765
@@ -46,7 +46,7 @@ def ip_local():
 if __name__ == '__main__':
     srv = http.server.ThreadingHTTPServer(('0.0.0.0', PORTA), Handler)
     ip = ip_local()
-    print('\n  Biblioteca Kindle ligada.\n')
+    print('\n  LibraryMind ligada.\n')
     print(f'  No Mac:      http://localhost:{PORTA}')
     if ip: print(f'  No celular:  http://{ip}:{PORTA}   (mesma rede Wi-Fi)')
     print('\n  Para desligar, feche esta janela.\n')

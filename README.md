@@ -27,3 +27,7 @@ Inicie o Apache no XAMPP e acesse http://localhost/librarymind/.
 Os endereços antigos biblioteca.html e leitor.html redirecionam para as rotas PHP, preservando parâmetros e o livro selecionado. Os scripts Python/.command são legados; o servidor atual é o Apache/PHP. Favoritos e posição de leitura permanecem no localStorage da mesma origem do navegador.
 
 O download permanece disponível; o envio pelo WhatsApp foi removido. O leitor EPUB tem coluna vertical e fonte ajustável; PDFs usam o visualizador do navegador. Sem os livros e as capas locais, o catálogo abre, mas downloads e capas não estarão disponíveis.
+
+## Navegação de aplicativo
+
+O menu lateral fica visível no computador e abre pelo botão de menu em telas de até 900px. A seção ativa aparece no menu e no cabeçalho. O menu móvel fecha com Escape, ao escolher uma seção ou ao tocar fora dele. A configuração de seções fica em `config/navigation.php`; o comportamento do menu fica em `assets/js/app-shell.js`.

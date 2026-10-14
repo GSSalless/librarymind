@@ -7,3 +7,12 @@ Cada etapa corresponde a um commit independente.
 3. **Interface de aplicativo:** navegação lateral fixa no computador e recolhível no celular, cabeçalho compacto com nome da seção, indicação de página ativa e rodapé discreto.
 
 O acervo e as capas continuam locais. A reestruturação não altera os identificadores dos livros nem as chaves do localStorage. Os commits desta sequência são preparados localmente para revisão antes do próximo envio ao GitHub.
+
+## Verificações realizadas
+
+- Sintaxe dos arquivos PHP validada pelo PHP do XAMPP.
+- Metadados comparados com o catálogo original: mesmos registros e identificadores.
+- Biblioteca, API, leitor, download, rotas inválidas e bloqueio dos diretórios internos conferidos por HTTP.
+- Pesquisa e navegação lateral testadas no navegador.
+- Menu móvel testado em 390px, sem rolagem horizontal, com fechamento após selecionar uma seção.
+- Link antigo biblioteca.html testado com abertura de ficha e navegação ao leitor pela rota PHP.

@@ -43,17 +43,18 @@ function table(list){
   </tbody></table></div>`;
 }
 
-/* ---- abas ---- */
+/* ---- navegação entre seções ---- */
 const VIEWS=['painel','catalogo','autores','temas','pesquisa','estante'];
 function show(v){
   if(!VIEWS.includes(v)) v='painel';
   VIEWS.forEach(x=>{$('#v-'+x).hidden = x!==v});
-  document.querySelectorAll('nav.tabs button').forEach(b=>b.setAttribute('aria-selected', b.dataset.v===v));
+  document.querySelectorAll('.app-nav [data-v]').forEach(b=>{if(b.dataset.v===v)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current')});
+  document.dispatchEvent(new CustomEvent('library:viewchange',{detail:{view:v}}));
   if(v==='estante') renderEstante();
   if(location.hash.slice(1)!==v) history.replaceState(null,'','#'+v);
   window.scrollTo({top:0});
 }
-document.querySelectorAll('nav.tabs button').forEach(b=>b.onclick=()=>show(b.dataset.v));
+document.querySelectorAll('.app-nav [data-v]').forEach(b=>b.onclick=e=>{e.preventDefault();show(b.dataset.v)});
 
 /* ---- painel ---- */
 const totalPag = UNIQ.reduce((s,b)=>s+b.p,0), totalH = UNIQ.reduce((s,b)=>s+b.h,0);

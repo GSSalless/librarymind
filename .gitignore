@@ -1,0 +1,8 @@
+# Acervo e dados pessoais locais
+/Biblioteca/
+/dados/
+/Biblioteca_Kindle.xlsx
+.DS_Store
+.env
+.env.*
+!.env.example

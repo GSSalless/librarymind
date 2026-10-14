@@ -7,7 +7,11 @@ final class LibraryController
 {
     private Catalog $catalog;
     public function __construct(Catalog $catalog) { $this->catalog = $catalog; }
-    public function index(): void { View::render('library/index'); }
+    public function index(): void
+    {
+        $navigation = require dirname(__DIR__, 2) . '/config/navigation.php';
+        View::render('library/index', ['page' => 'library', 'pageTitle' => 'LibraryMind', 'navigation' => $navigation], 'library');
+    }
     public function catalog(): void
     {
         $catalog = $this->catalog->all();

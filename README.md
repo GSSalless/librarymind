@@ -9,7 +9,10 @@ Inicie o Apache no XAMPP e acesse http://localhost/librarymind/.
 - `index.php`: entrada única e tabela de rotas.
 - `app/Models/Catalog.php`: leitura e validação dos metadados do catálogo JSON.
 - `app/Controllers/`: controladores da biblioteca, API e leitor.
-- `app/Views/`: telas renderizadas pelo PHP.
+- `app/Views/layouts/`: estrutura das telas.
+- `app/Views/partials/`: cabeçalho, rodapé, scripts e modal reutilizáveis.
+- `app/Views/library/pages/`: conteúdo de cada seção da biblioteca.
+- `config/navigation.php`: configuração única do menu.
 - `assets/css/` e `assets/js/`: apresentação e interações do navegador.
 - `assets/vendor/`: EPUB.js e JSZip com suas licenças.
 - `storage/catalogo.json`: metadados do catálogo versionados. O acesso HTTP direto a storage e app é bloqueado por .htaccess.

@@ -4,5 +4,5 @@ namespace App\Controllers;
 use App\Core\View;
 final class ReaderController
 {
-    public function index(): void { View::render('reader/index'); }
+    public function index(): void { View::render('reader/index', ['page' => 'reader', 'pageTitle' => 'Leitor · LibraryMind'], 'reader'); }
 }

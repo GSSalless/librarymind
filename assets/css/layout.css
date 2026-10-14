@@ -1,0 +1,1 @@
+.app-footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:16px 24px;border-top:1px solid var(--line,#ddd);color:var(--muted,#5b6462);font-size:12px}.app-footer span:first-child{font-weight:600}

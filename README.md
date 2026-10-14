@@ -1,23 +1,26 @@
 # LibraryMind
 
-Biblioteca pessoal de ebooks. Versão inicial em HTML, CSS e JavaScript, com catálogo embutido no arquivo `biblioteca.html` e favoritos no localStorage do navegador.
+Biblioteca pessoal em PHP 8, com arquitetura MVC e JavaScript para as interações e o leitor EPUB. Sem framework ou dependências PHP externas.
 
-## Teste no XAMPP
+## Executar
 
 Inicie o Apache no XAMPP e acesse http://localhost/librarymind/.
 
-- `index.php`: entrada para a interface existente.
-- `biblioteca.html`: interface, catálogo, busca, filtros e favoritos.
-- `dados/capas_sprites/`: imagens de capas usadas pela interface.
-- `Biblioteca/`: acervo local.
-- `servidor_biblioteca.py`: servidor legado, porta 8765, usado pelas funções de integração com o Mac.
+- `index.php`: entrada única e tabela de rotas.
+- `app/Models/Catalog.php`: leitura e validação dos metadados do catálogo JSON.
+- `app/Controllers/`: controladores da biblioteca, API e leitor.
+- `app/Views/`: telas renderizadas pelo PHP.
+- `assets/css/` e `assets/js/`: apresentação e interações do navegador.
+- `assets/vendor/`: EPUB.js e JSZip com suas licenças.
+- `storage/catalogo.json`: metadados do catálogo versionados. O acesso HTTP direto a storage e app é bloqueado por .htaccess.
+- `Biblioteca/` e `dados/`: livros e capas locais, fora do Git.
 
-## Download e leitura
+## Rotas
 
-O modal permite baixar o arquivo diretamente, abrir o leitor, copiar o link da ficha e adicionar o livro à estante. O envio pelo WhatsApp foi removido nesta versão.
+- `index.php`: biblioteca.
+- `index.php?route=api/catalogo`: dados do catálogo em JSON.
+- `index.php?route=leitor&arquivo=...&titulo=...&livro=...`: leitor EPUB/PDF.
 
-`leitor.html`, `leitor.js` e `leitor.css` oferecem leitura EPUB (EPUB.js 0.3.93 / JSZip 3.10.1, incluídos em `assets/vendor` com suas licenças) e PDF pelo visualizador do navegador. A posição de leitura EPUB é salva no localStorage. Outros formatos oferecem download. Capítulos dependem do sumário presente no EPUB.
+Os endereços antigos biblioteca.html e leitor.html redirecionam para as rotas PHP, preservando parâmetros e o livro selecionado. Os scripts Python/.command são legados; o servidor atual é o Apache/PHP. Favoritos e posição de leitura permanecem no localStorage da mesma origem do navegador.
 
-O servidor Python e os scripts .command permanecem como arquivos legados. Os favoritos e a posição de leitura não são transferidos automaticamente entre origens do navegador.
-
-O acervo, a planilha e a pasta de dados ficam fora do Git. O HTML contém os metadados do catálogo atual. Os livros, a planilha e os arquivos de dados e capas não são distribuídos neste repositório; sem esses arquivos locais, as capas e os downloads não estarão disponíveis.
+O download permanece disponível; o envio pelo WhatsApp foi removido. O leitor EPUB tem coluna vertical e fonte ajustável; PDFs usam o visualizador do navegador. Sem os livros e as capas locais, o catálogo abre, mas downloads e capas não estarão disponíveis.

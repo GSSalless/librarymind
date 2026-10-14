@@ -2,8 +2,8 @@
 function bookUrl(b){return b.path.split('/').map(encodeURIComponent).join('/')}
 function bookStatus(message){const el=document.querySelector('#bookStatus');if(el)el.textContent=message}
 function readBook(b){
-  const url=new URL('leitor.html',location.href);
-  url.search=new URLSearchParams({arquivo:b.path,titulo:b.t,livro:b.i});
+  const url=new URL('index.php',location.href);
+  url.search=new URLSearchParams({route:'leitor',arquivo:b.path,titulo:b.t,livro:b.i});
   location.href=url.href;
 }
 function downloadBook(b){

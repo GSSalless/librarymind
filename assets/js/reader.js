@@ -2,7 +2,7 @@
  const $=id=>document.getElementById(id), params=new URLSearchParams(location.search);
  const path=params.get('arquivo')||'', title=params.get('titulo')||'Livro', id=params.get('livro');
  $('title').textContent=title;document.title=title+' · LibraryMind';
- if(id&&/^\d+$/.test(id))$('back').href='biblioteca.html#livro='+id;
+ if(id&&/^\d+$/.test(id))$('back').href='index.php#livro='+id;
  const segments=path.split('/');
  if(segments[0]!=='Biblioteca'||segments.some(s=>s==='..'||s==='.'||s.includes('\\'))){$('status').textContent='O caminho do livro é inválido.';return;}
  const url=segments.map(encodeURIComponent).join('/'), ext=path.split('.').pop().toLowerCase();
